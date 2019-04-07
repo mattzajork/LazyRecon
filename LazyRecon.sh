@@ -109,10 +109,10 @@ portScan(){
     open_ports=$(cat $PSCAN_PATH/masscan.xml | grep portid | cut -d "\"" -f 10 | sort -n | uniq | paste -sd,)
     echo -e "${BLUE}[*] Masscan Done! View the HTML report at $PSCAN_PATH/final-masscan.html${RESET}"
 
-    runBanner "nmap"
-    sudo nmap -sVC -p $open_ports --open -v -T4 -Pn -iL $SUB_PATH/final-subdomains.txt -oX $PSCAN_PATH/nmap.xml
-    xsltproc -o $PSCAN_PATH/final-nmap.html $PSCAN_PATH/nmap.xml
-    echo -e "${BLUE}[*] Nmap Done! View the HTML report at $PSCAN_PATH/final-nmap.html${RESET}"
+    #runBanner "nmap"
+    #sudo nmap -sVC -p $open_ports --open -v -T4 -Pn -iL $SUB_PATH/final-subdomains.txt -oX $PSCAN_PATH/nmap.xml
+    #xsltproc -o $PSCAN_PATH/final-nmap.html $PSCAN_PATH/nmap.xml
+    #echo -e "${BLUE}[*] Nmap Done! View the HTML report at $PSCAN_PATH/final-nmap.html${RESET}"
 }
 
 
@@ -152,6 +152,6 @@ corsScan
 enumIPs
 portScan
 visualRecon
-bruteDir
+#bruteDir
 
 echo -e "${GREEN}\n--==[ DONE ]==--${RESET}"
